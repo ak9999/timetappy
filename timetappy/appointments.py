@@ -15,6 +15,10 @@ class AppointmentsMixin():
             'pageNumber': pageNumber
         }
         return self.api_get_request(f'{self.TIMETAP_API_APPOINTMENTS_REPORT}', params=params)
+    
+    @return_response
+    def get_appointment_by_id(self, calendarId):
+        return self.api_get_request(f'{self.TIMETAP_API_APPOINTMENTS}{calendarId}')
 
     @return_response
     def get_locations(self):
