@@ -5,7 +5,7 @@ with open("README.md", "r") as fh:
 
 setuptools.setup(
     name="timetappy",
-    version="0.0.1b",
+    version="0.0.3",
     author="Abdullah 'AJ' Khan",
     author_email="aj@ajkhan.me",
     description="Unofficial API client wrapper around the TimeTap API",

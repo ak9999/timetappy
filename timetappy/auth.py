@@ -3,13 +3,9 @@ import requests
 import datetime
 import hashlib
 import json
-import logging
-import inspect
 
 
 class TimeTapAuthentication(requests.auth.AuthBase):
-
-    logging.basicConfig(filename='auth.log', level=logging.DEBUG, format='%(asctime)s %(message)s')
 
     def __init__(self, APIKey: str, PrivateKey: str):
         self.APIKey = APIKey
@@ -23,10 +19,5 @@ class TimeTapAuthentication(requests.auth.AuthBase):
         return 'Bearer ' + token['sessionToken']
 
     def __call__(self, request):
-        logging.info(f'Starting {inspect.currentframe().f_code.co_name}')
         request.headers['Authorization'] = self.get_authorization_header()
-        logging.info(f'Request Authorization Header: {request.headers["Authorization"]}')
-        logging.debug(f'URL: {request.url}')
-        logging.debug(f'Request Headers: {request.headers.items()}')
-        logging.info(f'Finishing {inspect.currentframe().f_code.co_name}')
         return request
