@@ -7,7 +7,7 @@ import json
 
 class TimeTapAuthentication(requests.auth.AuthBase):
 
-    def __init__(self, APIKey: str, PrivateKey: str, BearerToken: str):
+    def __init__(self, APIKey: str, PrivateKey: str, BearerToken: str = None):
         self.APIKey = APIKey
         self.PrivateKey = PrivateKey
         self.timestamp = datetime.datetime.now().timestamp()

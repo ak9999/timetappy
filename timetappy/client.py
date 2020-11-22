@@ -16,7 +16,7 @@ class Client(AppointmentsMixin, LocationsMixin, StaffMixin, CalendarMixin, Clien
         self.secret = PrivateKey
         self.testing = Testing
         self.base_url = self.TIMETAP_BASE_URL_LIVE if not self.testing else self.TIMETAP_BASE_URL_TEST
-        self.token = TimeTapAuthentication(self.key, self.secret, None).get_authorization_header()
+        self.token = TimeTapAuthentication(self.key, self.secret).get_authorization_header()
 
     def __repr__(self):
         return f'{type(self).__name__}(APIKey={self.key!r}, PrivateKey={self.secret!r}, Testing={self.testing!r})'
